@@ -18,6 +18,9 @@ export default {
   server: {
     host: '0.0.0.0'
   },
+  axios: {
+    baseURL: process.env.NODE_ENV === "production" ? "http://backend.zenn-app.tk/" : "localhost:5000"
+  },
   /*
   ** Customize the progress-bar color
   */
