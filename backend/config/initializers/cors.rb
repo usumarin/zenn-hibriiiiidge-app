@@ -8,7 +8,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     # localhost:3000 からのアクセスを許容する
-    origins ['https://zenn-app.tk','https://localhost:3000']
+    origins 'zenn-app.tk','localhost:3000'
 
     resource '*',
     headers: :any,
