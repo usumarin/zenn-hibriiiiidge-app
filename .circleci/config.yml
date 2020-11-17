@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
+  aws-ecr: circleci/aws-ecr@6.12.2
 
 jobs:
   test_backend:
@@ -95,13 +96,23 @@ jobs:
 
 workflows:
   version: 2
+  test:
+    jobs:
+      - test_backend:
+          filters:
+            branches:
+              ignore: main
+      - test_frontend:
+          filters:
+            branches:
+              ignore: main
   test_and_deploy:
     jobs:
       - test_backend:
-        filters:
-          branches:
-            only: main
+          filters:
+            branches:
+              only: main
       - test_frontend:
-        filters:
-          branches:
-            only: main
+          filters:
+            branches:
+              only: main
