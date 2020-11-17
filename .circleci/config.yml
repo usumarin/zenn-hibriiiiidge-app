@@ -149,7 +149,7 @@ workflows:
               only: main
       - build_and_push_image_frontend:
           requires:
-            - test-frontend
+            - test_frontend
             - test_backend
           filters:
             branches:
